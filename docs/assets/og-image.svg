@@ -28,18 +28,18 @@
     <text x="20" y="24" class="font-mono font-bold text-neon" font-size="20">bash</text>
     
     <!-- System Badge -->
-    <text x="20" y="100" class="font-mono font-bold text-neon" font-size="24" letter-spacing="2">SYSTEM.READY</text>
+    <text x="20" y="100" class="font-mono font-bold text-neon" font-size="24" letter-spacing="2">SMART AGENTS</text>
     
     <!-- Title -->
     <text x="20" y="180" class="font-mono font-bold text-white" font-size="80" letter-spacing="-2">SKILLS_TOOLS</text>
     
     <!-- Subtitle -->
-    <text x="20" y="260" class="font-mono font-regular text-muted" font-size="32">Find the right skill.</text>
+    <text x="20" y="260" class="font-mono font-regular text-muted" font-size="32">Find the right skill for your agents.</text>
     <text x="20" y="310" class="font-mono font-regular text-white" font-size="32">Load SKILL.md cleanly.</text>
     <text x="20" y="360" class="font-mono font-regular text-muted" font-size="32">Feed context back to your model.</text>
     
     <!-- Bottom Right Decoration -->
-    <text x="960" y="400" class="font-mono font-bold text-neon" font-size="120" text-anchor="end" opacity="0.1">02</text>
+    <text x="960" y="400" class="font-mono font-bold text-neon" font-size="120" text-anchor="end" opacity="0.1">AI</text>
   </g>
   
   <!-- Outer Brackets Decoration -->
