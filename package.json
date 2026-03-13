@@ -1,5 +1,5 @@
 {
-  "name": "@phumudzo/skills-tools",
+  "name": "ai-sdk-skills",
   "version": "0.1.0",
   "description": "AI SDK tools for finding and loading SKILL.md content from the open skills ecosystem",
   "type": "module",

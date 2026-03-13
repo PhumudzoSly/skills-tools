@@ -59,7 +59,7 @@
           feed context back to your model.
         </h1>
         <p class="hero-copy">
-          <strong>@phumudzo/skills-tools</strong> gives AI SDK workflows a focused two-step loop:
+          <strong>ai-sdk-skills</strong> gives AI SDK workflows a focused two-step loop:
           find candidates with <code>findSkillsTool</code>, then hydrate model context with
           <code>readSkillTool</code>.
         </p>
@@ -89,7 +89,7 @@
           <p>Peer dependencies: <code>ai@^6</code> and <code>zod@^3.23</code>.</p>
         </div>
         <div class="command-row">
-          <pre><code id="install-command">pnpm add @phumudzo/skills-tools ai zod</code></pre>
+          <pre><code id="install-command">pnpm add ai-sdk-skills ai zod</code></pre>
           <button type="button" id="copy-install" class="copy-button">Copy</button>
         </div>
       </section>
@@ -103,7 +103,7 @@
           </p>
         </div>
         <pre><code>import { generateText, stepCountIs } from "ai";
-import { initSkillsTools } from "@phumudzo/skills-tools";
+import { initSkillsTools } from "ai-sdk-skills";
 
 const { tools } = initSkillsTools({
   find: {
