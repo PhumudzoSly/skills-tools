@@ -1,0 +1,56 @@
+{
+  "name": "@phumudzo/skills-tools",
+  "version": "0.1.0",
+  "description": "AI SDK tools for finding and loading SKILL.md content from the open skills ecosystem",
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsup src/index.ts --format esm,cjs --dts",
+    "type-check": "tsc --noEmit",
+    "clean": "rimraf dist",
+    "prepublishOnly": "pnpm clean && pnpm type-check && pnpm build",
+    "publish:public": "npm publish --access public"
+  },
+  "keywords": [
+    "ai-sdk",
+    "tools",
+    "skills",
+    "vercel",
+    "skill-discovery"
+  ],
+  "license": "MIT",
+  "peerDependencies": {
+    "ai": "^6.0.0",
+    "zod": "^3.23.0"
+  },
+  "dependencies": {
+    "gray-matter": "^4.0.3"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "ai": "^6.0.0",
+    "rimraf": "^6.0.1",
+    "tsup": "^8.3.6",
+    "typescript": "^5.9.3",
+    "zod": "^3.23.0"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
