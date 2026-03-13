@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="One-page documentation for @phumudzo/skills-tools: find skills, read SKILL.md files, and patch model context with a clean two-step flow."
+    />
+    
+    <!-- Open Graph / Social Meta Tags -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Skills Tools Docs" />
+    <meta property="og:description" content="Find the right skill. Load SKILL.md cleanly. Feed context back to your model." />
+    <!-- In production, make this an absolute URL -->
+    <meta property="og:image" content="./assets/og-image.svg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Skills Tools Docs" />
+    <meta name="twitter:description" content="Find the right skill. Load SKILL.md cleanly. Feed context back to your model." />
+    <meta name="twitter:image" content="./assets/og-image.svg" />
+
+    <title>Skills Tools Docs</title>
+    <link rel="icon" type="image/svg+xml" href="./assets/skills-sigil.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <!-- Background Grid and Glow -->
+    <div class="grid-bg"></div>
+    <div class="glow-bg"></div>
+
+    <header class="topbar">
+      <a class="brand" href="#top" aria-label="Skills Tools">
+        <img src="./assets/skills-sigil.svg" alt="" />
+        <span>Skills Tools</span>
+      </a>
+      <nav class="topnav" aria-label="Primary">
+        <a href="#install">Install</a>
+        <a href="#quick-start">Quick Start</a>
+        <a href="#tools">Tools</a>
+        <a href="#defaults">Defaults</a>
+        <a href="#outputs">Outputs</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero reveal" id="overview">
+        <p class="eyebrow">One page. Full mental model.</p>
+        <h1>
+          Find the right skill,
+          <span>load SKILL.md cleanly</span>,
+          feed context back to your model.
+        </h1>
+        <p class="hero-copy">
+          <strong>@phumudzo/skills-tools</strong> gives AI SDK workflows a focused two-step loop:
+          find candidates with <code>findSkillsTool</code>, then hydrate model context with
+          <code>readSkillTool</code>.
+        </p>
+        <div class="hero-actions">
+          <a class="button primary" href="#quick-start">See Integration</a>
+          <a class="button ghost" href="#tools">Browse Tool API</a>
+        </div>
+        <ul class="hero-stats" aria-label="Feature highlights">
+          <li>
+            <span class="value">2</span>
+            <span class="label">Core Tools</span>
+          </li>
+          <li>
+            <span class="value">3</span>
+            <span class="label">Ranking Strategies</span>
+          </li>
+          <li>
+            <span class="value">Node 18+</span>
+            <span class="label">Runtime</span>
+          </li>
+        </ul>
+      </section>
+
+      <section class="panel reveal" id="install">
+        <div class="section-head">
+          <h2>Install</h2>
+          <p>Peer dependencies: <code>ai@^6</code> and <code>zod@^3.23</code>.</p>
+        </div>
+        <div class="command-row">
+          <pre><code id="install-command">pnpm add @phumudzo/skills-tools ai zod</code></pre>
+          <button type="button" id="copy-install" class="copy-button">Copy</button>
+        </div>
+      </section>
+
+      <section class="panel reveal" id="quick-start">
+        <div class="section-head">
+          <h2>Quick Start</h2>
+          <p>
+            Call <code>initSkillsTools</code>, pass optional configuration, then hand
+            <code>tools</code> to your generation loop.
+          </p>
+        </div>
+        <pre><code>import { generateText, stepCountIs } from "ai";
+import { initSkillsTools } from "@phumudzo/skills-tools";
+
+const { tools } = initSkillsTools({
+  find: {
+    defaultMode: "search",
+    rankingStrategy: "hybrid",
+    preconfiguredSkills: [
+      { name: "playwright", source: "vercel-labs/agent-skills" },
+      { name: "prisma-expert", source: "vercel-labs/agent-skills" }
+    ]
+  },
+  read: {
+    maxChars: 16000
+  }
+});
+
+const result = await generateText({
+  model: "anthropic/claude-sonnet-4.5",
+  messages,
+  tools,
+  stopWhen: stepCountIs(6)
+});</code></pre>
+      </section>
+
+      <section class="panel reveal" id="flow">
+        <div class="section-head">
+          <h2>Two-Step Flow</h2>
+          <p>Designed to make skill selection explicit instead of implicit.</p>
+        </div>
+        <div class="flow-grid">
+          <article>
+            <span>01</span>
+            <h3>Find</h3>
+            <p>
+              Run <code>findSkillsTool</code> in <code>preconfig</code> or <code>search</code>
+              mode to receive ranked candidates and a recommended pick.
+            </p>
+          </article>
+          <article>
+            <span>02</span>
+            <h3>Read</h3>
+            <p>
+              Run <code>readSkillTool</code> to resolve and load a concrete <code>SKILL.md</code>,
+              then inject <code>contextPatch</code> into model context.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="panel reveal" id="tools">
+        <div class="section-head">
+          <h2>Tool Reference</h2>
+          <p>Implementation-accurate behavior from the current source.</p>
+        </div>
+
+        <h3>findSkillsTool</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Input</th>
+              <th>Type</th>
+              <th>Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>mode</td>
+              <td>"preconfig" | "search"</td>
+              <td>Optional; defaults to configured <code>defaultMode</code> (search by default).</td>
+            </tr>
+            <tr>
+              <td>query</td>
+              <td>string</td>
+              <td>Required for search mode, minimum 2 characters.</td>
+            </tr>
+            <tr>
+              <td>limit</td>
+              <td>number</td>
+              <td>Clamped to 1..25.</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Output</th>
+              <th>Type</th>
+              <th>Meaning</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>recommended</td>
+              <td>SkillCandidate</td>
+              <td>Top-ranked candidate after deterministic or AI-assisted ranking.</td>
+            </tr>
+            <tr>
+              <td>candidates</td>
+              <td>SkillCandidate[]</td>
+              <td>Sorted by confidence descending.</td>
+            </tr>
+            <tr>
+              <td>needsDisambiguation</td>
+              <td>boolean</td>
+              <td>True when confidence is low, scores are close, or no candidates found.</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3>readSkillTool</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Input</th>
+              <th>Type</th>
+              <th>Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>source</td>
+              <td>string</td>
+              <td>GitHub owner/repo format, for example <code>vercel-labs/agent-skills</code>.</td>
+            </tr>
+            <tr>
+              <td>skillName / slug</td>
+              <td>string</td>
+              <td>Name can be inferred from slug if omitted.</td>
+            </tr>
+            <tr>
+              <td>preferredPath</td>
+              <td>string</td>
+              <td>Optional candidate path hint, normalized to end with <code>SKILL.md</code>.</td>
+            </tr>
+            <tr>
+              <td>maxChars</td>
+              <td>number</td>
+              <td>1000..120000 per call; defaults to config value (18000 by default).</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="panel reveal" id="defaults">
+        <div class="section-head">
+          <h2>Default Behavior Snapshot</h2>
+          <p>These values apply when you do not override config.</p>
+        </div>
+        <div class="cards">
+          <article>
+            <h3>Find Defaults</h3>
+            <ul>
+              <li>defaultMode: <code>search</code></li>
+              <li>allowedModes: <code>["preconfig", "search"]</code></li>
+              <li>searchLimit: <code>10</code></li>
+              <li>rankingStrategy: <code>hybrid</code></li>
+              <li>minConfidence: <code>0.68</code></li>
+              <li>closeScoreDelta: <code>0.08</code></li>
+            </ul>
+          </article>
+          <article>
+            <h3>Read Defaults</h3>
+            <ul>
+              <li>maxChars: <code>18000</code></li>
+              <li>maxCandidatesToRead: <code>20</code></li>
+              <li>Branches checked: <code>main</code> then <code>master</code></li>
+              <li>Frontmatter required: <code>name</code> and <code>description</code></li>
+            </ul>
+          </article>
+          <article>
+            <h3>Search API</h3>
+            <ul>
+              <li>Endpoint base: <code>https://skills.sh</code></li>
+              <li>Route: <code>/api/search</code></li>
+              <li>Query params: <code>q</code>, <code>limit</code></li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="panel reveal" id="outputs">
+        <div class="section-head">
+          <h2>Sample Output</h2>
+          <p>Typical response shape from <code>readSkillTool</code>.</p>
+        </div>
+        <pre><code>{
+  "ok": true,
+  "message": "Loaded skill playwright from vercel-labs/agent-skills",
+  "selected": {
+    "name": "playwright",
+    "source": "vercel-labs/agent-skills",
+    "path": "skills/playwright/SKILL.md",
+    "branch": "main",
+    "description": "Playwright testing best practices"
+  },
+  "contextPatch": "ACTIVE SKILL: playwright\\nSOURCE: vercel-labs/agent-skills...",
+  "skillMarkdown": "---\\nname: playwright..."
+}</code></pre>
+      </section>
+    </main>
+
+    <footer class="footer reveal">
+      <p>Built for deterministic skill discovery and context hydration in AI SDK flows.</p>
+      <p><span id="year"></span> Skills Tools</p>
+    </footer>
+
+    <script src="./script.js"></script>
+  </body>
+</html>

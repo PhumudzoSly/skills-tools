@@ -1,0 +1,42 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="#000000" />
+  
+  <defs>
+    <radialGradient id="glow" cx="600" cy="-100" r="800" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#5E6AD2" stop-opacity="0.25" />
+      <stop offset="1" stop-color="#000000" stop-opacity="0" />
+    </radialGradient>
+    <radialGradient id="ring" cx="600" cy="315" r="400" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF" stop-opacity="0.1" />
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0" />
+    </radialGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#FFFFFF" stroke-opacity="0.03" stroke-width="1" />
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#grid)" />
+  <rect width="1200" height="630" fill="url(#glow)" />
+  
+  <!-- Decorative Ring -->
+  <circle cx="600" cy="280" r="300" stroke="url(#ring)" stroke-width="1" />
+  <circle cx="600" cy="280" r="400" stroke="url(#ring)" stroke-width="1" />
+
+  <!-- Logo Group -->
+  <g transform="translate(540, 160)">
+    <rect x="0" y="0" width="120" height="120" rx="24" fill="#0A0A0A" stroke="#222222" stroke-width="2" />
+    <path d="M35 48 L60 30 L85 48 L85 82 L60 100 L35 82 Z" stroke="#5E6AD2" stroke-width="6" stroke-linejoin="round" fill="none" />
+    <path d="M60 45V85" stroke="#FFFFFF" stroke-opacity="0.8" stroke-width="6" stroke-linecap="round" />
+    <circle cx="60" cy="65" r="6" fill="#FFFFFF" />
+  </g>
+
+  <!-- Typography -->
+  <text x="600" y="380" font-family="-apple-system, BlinkMacSystemFont, 'Inter', sans-serif" font-weight="600" font-size="72" fill="#FFFFFF" text-anchor="middle" letter-spacing="-0.03em">Skills Tools</text>
+  
+  <text x="600" y="440" font-family="-apple-system, BlinkMacSystemFont, 'Inter', sans-serif" font-weight="400" font-size="32" fill="#888888" text-anchor="middle" letter-spacing="-0.01em">Find the right skill. Load SKILL.md cleanly.</text>
+  
+  <text x="600" y="490" font-family="-apple-system, BlinkMacSystemFont, 'Inter', sans-serif" font-weight="400" font-size="32" fill="#888888" text-anchor="middle" letter-spacing="-0.01em">Feed context back to your model.</text>
+
+  <!-- Bottom Accent Line -->
+  <rect x="0" y="626" width="1200" height="4" fill="url(#glow)" />
+</svg>

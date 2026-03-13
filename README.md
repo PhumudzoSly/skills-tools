@@ -7,6 +7,19 @@ Installable AI SDK tools for working with the skills ecosystem using a two-step 
 
 This package is designed so the model can choose a candidate from `findSkillsTool`, then call `readSkillTool` to load the actual skill instructions into context.
 
+## One-Page Documentation Website
+
+A complete one-page documentation site is included in `docs/index.html`.
+
+- Open directly in a browser: `docs/index.html`
+- Local preview (recommended):
+
+```bash
+pnpm dlx serve docs
+```
+
+The site includes a custom icon at `docs/assets/skills-sigil.svg`.
+
 ## Package Naming
 
 If this is managed under Vercel Labs, prefer:
