@@ -3,37 +3,39 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="One-page documentation for @phumudzo/skills-tools: find skills, read SKILL.md files, and patch model context with a clean two-step flow."
-    />
     
-    <!-- Open Graph / Social Meta Tags -->
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="Skills Tools Docs" />
-    <meta property="og:description" content="Find the right skill. Load SKILL.md cleanly. Feed context back to your model." />
-    <!-- In production, make this an absolute URL -->
-    <meta property="og:image" content="./assets/og-image.svg" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Skills Tools Docs" />
-    <meta name="twitter:description" content="Find the right skill. Load SKILL.md cleanly. Feed context back to your model." />
-    <meta name="twitter:image" content="./assets/og-image.svg" />
+    <!-- Primary Meta Tags -->
+    <title>Skills Tools | Seamless SKILL.md integration for AI SDKs</title>
+    <meta name="title" content="Skills Tools | Seamless SKILL.md integration for AI SDKs" />
+    <meta name="description" content="Give your AI coding workflows a focused two-step loop. Find candidates with findSkillsTool, then hydrate model context with readSkillTool." />
+    <link rel="canonical" href="https://phumudzo.github.io/skills-tools/" />
+    <meta name="theme-color" content="#e2ff00" />
+    <meta name="robots" content="index, follow" />
 
-    <title>Skills Tools Docs</title>
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://phumudzo.github.io/skills-tools/" />
+    <meta property="og:title" content="Skills Tools | Seamless SKILL.md integration for AI SDKs" />
+    <meta property="og:description" content="Give your AI coding workflows a focused two-step loop. Find candidates with findSkillsTool, then hydrate model context with readSkillTool." />
+    <meta property="og:image" content="https://phumudzo.github.io/skills-tools/assets/og-image.svg" />
+    <meta property="og:site_name" content="Skills Tools" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://phumudzo.github.io/skills-tools/" />
+    <meta property="twitter:title" content="Skills Tools | Seamless SKILL.md integration for AI SDKs" />
+    <meta property="twitter:description" content="Give your AI coding workflows a focused two-step loop. Find candidates with findSkillsTool, then hydrate model context with readSkillTool." />
+    <meta property="twitter:image" content="https://phumudzo.github.io/skills-tools/assets/og-image.svg" />
+
+    <!-- Assets & Styles -->
     <link rel="icon" type="image/svg+xml" href="./assets/skills-sigil.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
-    <!-- Background Grid and Glow -->
-    <div class="grid-bg"></div>
-    <div class="glow-bg"></div>
-
+    <!-- Top Navigation -->
     <header class="topbar">
       <a class="brand" href="#top" aria-label="Skills Tools">
         <img src="./assets/skills-sigil.svg" alt="" />
@@ -49,7 +51,7 @@
     </header>
 
     <main id="top">
-      <section class="hero reveal" id="overview">
+      <section class="hero reveal" id="overview">        <div class="sys-badge">SYSTEM.READY</div>
         <p class="eyebrow">One page. Full mental model.</p>
         <h1>
           Find the right skill,
@@ -311,3 +313,4 @@ const result = await generateText({
     <script src="./script.js"></script>
   </body>
 </html>
+

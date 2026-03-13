@@ -35,9 +35,14 @@ const observer = new IntersectionObserver(
 );
 
 for (const element of revealElements) {
-  if (element.classList.contains("hero")) continue;
   observer.observe(element);
 }
+
+// Ensure hero always shows even if offset
+setTimeout(() => {
+  const hero = document.querySelector(".hero.reveal");
+  if (hero) hero.classList.add("is-visible");
+}, 50);
 
 const navLinks = Array.from(document.querySelectorAll(".topnav a"));
 const sectionById = new Map(
