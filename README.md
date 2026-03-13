@@ -1,4 +1,4 @@
-# @phumu/skills-tools
+# @phumudzo/skills-tools
 
 Installable AI SDK tools for working with the skills ecosystem using a two-step flow:
 
@@ -30,19 +30,19 @@ If it is a team-owned package, use your own scope:
 
 - `@your-scope/skills-tools`
 
-This scaffold is currently configured as `@phumu/skills-tools` and can be changed in `package.json`.
+This scaffold is currently configured as `@phumudzo/skills-tools` and can be changed in `package.json`.
 
 ## Install
 
 ```bash
-pnpm add @phumu/skills-tools ai zod
+pnpm add @phumudzo/skills-tools ai zod
 ```
 
 ## Quick Start
 
 ```ts
 import { generateText, stepCountIs } from "ai";
-import { initSkillsTools } from "@phumu/skills-tools";
+import { initSkillsTools } from "@phumudzo/skills-tools";
 
 const { tools } = initSkillsTools({
   find: {
